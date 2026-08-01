@@ -47,45 +47,130 @@
 - **Язык**: Kotlin
 - **Библиотеки**: AndroidX, Material 3, Room, Coroutines
 
-## Установка
+## Сборка APK
 
-1. Скопируйте `Sugar-1.0.apk` на телефон
-2. Тапните по файлу в файловом менеджере
-3. Разрешите установку из неизвестных источников (один раз)
-4. Нажмите «Установить»
+### Способ 1. Через Android Studio (рекомендуется)
 
-## Сборка
+1. Установите **Android Studio Hedgehog (2023.1.1)** или новее: https://developer.android.com/studio
+2. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/Alexlip531/sborka.git
+   ```
+3. В Android Studio: **File → Open → выберите папку `Sugar/`**
+4. Дождитесь окончания **Gradle Sync** (внизу появится индикатор)
+5. **Build → Build Bundle(s) / APK(s) → Build APK(s)**
+6. APK появится по пути:
+   ```
+   Sugar/app/build/outputs/apk/debug/app-debug.apk
+   ```
+7. Нажмите **"locate"** в уведомлении, чтобы открыть папку в файловом менеджере
 
+### Способ 2. Через командную строку
+
+**Требования:**
+- JDK 17 (например, Eclipse Temurin 17)
+- Android SDK с `platforms;android-34` и `build-tools;34.0.0`
+
+**Установка Android SDK через `sdkmanager`:**
 ```bash
+# Скачать cmdline-tools: https://developer.android.com/studio#command-line-tools-only
+sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+```
+
+**Сборка:**
+```bash
+cd Sugar
+
+# Linux/Mac
 export JAVA_HOME=/path/to/jdk-17
 export ANDROID_HOME=/path/to/android-sdk
 ./gradlew :app:assembleDebug
-# APK: app/build/outputs/apk/debug/app-debug.apk
+
+# Windows (PowerShell)
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-17"
+$env:ANDROID_HOME = "C:\Users\YOUR_NAME\AppData\Local\Android\Sdk"
+.\gradlew.bat :app:assembleDebug
 ```
+
+**APK будет по пути:**
+```
+Sugar/app/build/outputs/apk/debug/app-debug.apk
+```
+
+**Сборка release APK с подписью:**
+```bash
+# Сгенерировать keystore (один раз)
+keytool -genkey -v -keystore release.keystore -alias sugar \
+  -keyalg RSA -keysize 2048 -validity 10000
+
+# Добавить в app/build.gradle.kts секцию signingConfigs
+# Затем:
+./gradlew :app:assembleRelease
+```
+
+## Установка APK на телефон
+
+1. Скопируйте `app-debug.apk` на телефон (через USB, облако или мессенджер)
+2. В файловом менеджере тапните по файлу `.apk`
+3. При первом запуске разрешите установку из неизвестных источников для этого файлового менеджера
+4. Нажмите **«Установить»**
+5. Готово — приложение «Сахар» появится в списке приложений
 
 ## Структура проекта
 
 ```
-app/src/main/
-├── AndroidManifest.xml
-├── java/com/zai/sugar/
-│   ├── data/
-│   │   ├── entity/          — SugarMeasurement, PressureMeasurement
-│   │   ├── dao/             — SugarDao, PressureDao
-│   │   └── repository/      — AppDatabase, Repository
-│   ├── medical/
-│   │   ├── SugarEvaluator.kt       — оценка сахара
-│   │   └── PressureEvaluator.kt    — оценка давления
-│   ├── ui/
-│   │   ├── main/MainActivity.kt    — BottomNav хост
-│   │   ├── sugar/                   — фрагмент и адаптер
-│   │   ├── pressure/                — фрагмент и адаптер
-│   │   ├── calendar/                — фрагмент и адаптер сетки
-│   │   ├── stats/                   — фрагмент статистики
-│   │   └── dialogs/                 — BottomSheet диалоги добавления
-│   └── util/DateUtils.kt
-└── res/                              — layout, values, drawables
+Sugar/
+├── app/
+│   ├── build.gradle.kts              — конфигурация модуля
+│   ├── proguard-rules.pro
+│   └── src/main/
+│       ├── AndroidManifest.xml
+│       ├── java/com/zai/sugar/
+│       │   ├── data/
+│       │   │   ├── entity/           — SugarMeasurement, PressureMeasurement
+│       │   │   ├── dao/              — SugarDao, PressureDao
+│       │   │   └── repository/       — AppDatabase, Repository
+│       │   ├── medical/
+│       │   │   ├── SugarEvaluator.kt      — оценка сахара
+│       │   │   └── PressureEvaluator.kt   — оценка давления
+│       │   ├── ui/
+│       │   │   ├── main/MainActivity.kt   — BottomNav хост
+│       │   │   ├── sugar/                  — фрагмент и адаптер
+│       │   │   ├── pressure/               — фрагмент и адаптер
+│       │   │   ├── calendar/               — фрагмент и адаптер сетки
+│       │   │   ├── stats/                  — фрагмент статистики
+│       │   │   └── dialogs/                — BottomSheet диалоги добавления
+│       │   └── util/DateUtils.kt
+│       └── res/                            — layout, values, drawables
+├── build.gradle.kts                        — конфигурация проекта
+├── settings.gradle.kts
+├── gradle.properties
+├── gradle/wrapper/                         — Gradle wrapper 8.5
+├── gradlew, gradlew.bat                    — скрипты wrapper'а
+└── README.md
 ```
+
+## Troubleshooting
+
+**«Failed to sync Gradle»** — проверьте что установлен JDK 17 (не 8, не 21).
+```bash
+java -version
+# должно быть: openjdk version "17.x.x"
+```
+
+**«SDK location not found»** — создайте файл `Sugar/local.properties` со строкой:
+```
+sdk.dir=/path/to/your/Android/Sdk
+```
+
+**«Could not resolve com.android.tools.build:gradle:8.2.0»** — проверьте интернет. Gradle качает зависимости с `dl.google.com` и `repo.maven.apache.org`.
+
+**Сборка виснет / не хватает памяти** — добавьте в `gradle.properties`:
+```
+org.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m
+```
+
+**Компилятор KSP не найден** — проверьте что в `app/build.gradle.kts` указан плагин `com.google.devtools.ksp` версии `1.9.20-1.0.14` (соответствует Kotlin 1.9.20).
 
 ## Важно
 
