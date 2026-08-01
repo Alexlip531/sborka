@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Планы и напоминания</string>
+    <string name="action_add">Добавить план</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_done">Готово</string>
+
+    <string name="title_main">Мои планы</string>
+    <string name="title_new_plan">Новый план</string>
+    <string name="title_edit_plan">Изменить план</string>
+
+    <string name="hint_title">Что нужно сделать?</string>
+    <string name="hint_description">Подробности (необязательно)</string>
+    <string name="hint_date">Дата</string>
+    <string name="hint_time">Время</string>
+
+    <string name="empty_title">Пока нет планов</string>
+    <string name="empty_subtitle">Нажмите + чтобы добавить первый план</string>
+
+    <string name="section_today">Сегодня</string>
+    <string name="section_tomorrow">Завтра</string>
+    <string name="section_upcoming">Предстоит</string>
+    <string name="section_past">Прошедшие</string>
+
+    <string name="reminder_channel_name">Напоминания о планах</string>
+    <string name="reminder_channel_desc">Уведомления о запланированных делах</string>
+    <string name="notification_title">Напоминание</string>
+    <string name="notification_action_done">Отметить выполненным</string>
+    <string name="notification_action_snooze">Отложить на 15 мин</string>
+    <string name="notification_action_open">Открыть</string>
+
+    <string name="tab_all">Все</string>
+    <string name="tab_active">Активные</string>
+    <string name="tab_done">Выполнено</string>
+
+    <string name="dialog_select_date_time">Выберите дату и время</string>
+    <string name="dialog_confirm">ОК</string>
+
+    <string name="msg_saved">План сохранён</string>
+    <string name="msg_deleted">План удалён</string>
+    <string name="msg_no_time">Без напоминания</string>
+    <string name="msg_permission_required">Разрешите уведомления, чтобы получать напоминания</string>
+
+    <string name="default_time">через несколько секунд</string>
+    <string name="in_minutes">через %1$d мин</string>
+    <string name="in_hours">через %1$d ч</string>
+    <string name="in_days">через %1$d дн</string>
+
+    <string name="overdue_minutes">%1$d мин назад</string>
+    <string name="overdue_hours">%1$d ч назад</string>
+    <string name="overdue_days">%1$d дн назад</string>
+
+    <string name="error_title_required">Введите название плана</string>
+    <string name="error_past_time">Выберите время в будущем</string>
+</resources>

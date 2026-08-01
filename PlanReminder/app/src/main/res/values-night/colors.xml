@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_night">#0F172A</color>
+    <color name="bg_card_night">#1E293B</color>
+    <color name="text_primary_night">#F1F5F9</color>
+    <color name="text_secondary_night">#CBD5E1</color>
+    <color name="text_muted_night">#64748B</color>
+    <color name="divider_night">#334155</color>
+</resources>

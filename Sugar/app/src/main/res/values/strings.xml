@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Сахар</string>
+
+    <!-- Tabs -->
+    <string name="tab_sugar">Сахар</string>
+    <string name="tab_pressure">Давление</string>
+    <string name="tab_calendar">Календарь</string>
+    <string name="tab_stats">Статистика</string>
+
+    <!-- Actions -->
+    <string name="action_add">Добавить</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_close">Закрыть</string>
+
+    <!-- Sugar -->
+    <string name="sugar_title">Уровень сахара</string>
+    <string name="sugar_value">Значение, ммоль/л</string>
+    <string name="sugar_before_meal">До еды</string>
+    <string name="sugar_after_meal">После еды</string>
+    <string name="sugar_note">Заметка</string>
+    <string name="sugar_add_title">Новое измерение сахара</string>
+    <string name="sugar_edit_title">Изменить измерение</string>
+    <string name="sugar_target_before">Цель до еды: 4.4–7.2</string>
+    <string name="sugar_target_after">Цель после еды: до 10.0</string>
+    <string name="sugar_avg_before">Среднее до еды</string>
+    <string name="sugar_avg_after">Среднее после еды</string>
+    <string name="sugar_last">Последний замер</string>
+    <string name="sugar_no_data">Пока нет измерений сахара</string>
+    <string name="sugar_no_data_hint">Нажмите + чтобы добавить первый замер</string>
+    <string name="sugar_unit">ммоль/л</string>
+
+    <!-- Pressure -->
+    <string name="pressure_title">Артериальное давление</string>
+    <string name="pressure_systolic">Систолическое (верхнее)</string>
+    <string name="pressure_diastolic">Диастолическое (нижнее)</string>
+    <string name="pressure_pulse">Пульс, уд/мин</string>
+    <string name="pressure_arm">Рука</string>
+    <string name="pressure_arm_left">Левая</string>
+    <string name="pressure_arm_right">Правая</string>
+    <string name="pressure_note">Заметка</string>
+    <string name="pressure_add_title">Новое измерение давления</string>
+    <string name="pressure_edit_title">Изменить измерение</string>
+    <string name="pressure_target">Целевое: 120/80</string>
+    <string name="pressure_avg_systolic">Среднее систолическое</string>
+    <string name="pressure_avg_diastolic">Среднее диастолическое</string>
+    <string name="pressure_avg_pulse">Средний пульс</string>
+    <string name="pressure_no_data">Пока нет измерений давления</string>
+    <string name="pressure_no_data_hint">Нажмите + чтобы добавить первый замер</string>
+
+    <!-- Calendar -->
+    <string name="calendar_title">Календарь</string>
+    <string name="calendar_no_records">В этот день нет записей</string>
+    <string name="calendar_today">Сегодня</string>
+
+    <!-- Stats -->
+    <string name="stats_title">Статистика</string>
+    <string name="stats_total_sugar">Измерений сахара</string>
+    <string name="stats_total_pressure">Измерений давления</string>
+    <string name="stats_last_7_days">Последние 7 дней</string>
+    <string name="stats_last_30_days">Последние 30 дней</string>
+    <string name="stats_distribution_sugar">Распределение уровня сахара</string>
+    <string name="stats_distribution_pressure">Распределение давления</string>
+    <string name="stats_no_data">Недостаточно данных для статистики</string>
+
+    <!-- Validation -->
+    <string name="err_sugar_required">Введите уровень сахара</string>
+    <string name="err_sugar_range">Значение должно быть от 1 до 35 ммоль/л</string>
+    <string name="err_pressure_required">Введите систолическое и диастолическое</string>
+    <string name="err_pressure_range">Систолическое 50–250, диастолическое 30–150</string>
+    <string name="err_pulse_range">Пульс 30–220</string>
+
+    <!-- Dialog buttons -->
+    <string name="dialog_ok">ОК</string>
+
+    <!-- Detail -->
+    <string name="detail_measured_at">Измерено</string>
+    <string name="detail_status">Статус</string>
+    <string name="detail_advice">Рекомендация</string>
+
+    <!-- Distribution labels -->
+    <string name="dist_low">Низкий</string>
+    <string name="dist_normal">Норма</string>
+    <string name="dist_elevated">Повышен</string>
+    <string name="dist_high">Высокий</string>
+    <string name="dist_optimal">Оптим.</string>
+    <string name="dist_hypotension">Пониж.</string>
+    <string name="dist_hypertension">Гипертония</string>
+</resources>

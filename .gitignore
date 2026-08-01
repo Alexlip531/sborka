@@ -1,0 +1,30 @@
+# ---- Skills / environment ----
+skills/
+node_modules/
+.env
+
+# ---- Android SDK (huge, must never be committed) ----
+android-sdk/
+
+# ---- Build outputs & binaries ----
+download/
+upload/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# ---- Android / Gradle build artefacts ----
+**/build/
+**/.gradle/
+**/local.properties
+**/*.iml
+**/.idea/
+**/.cxx/
+**/captures/
+
+# ---- Misc ----
+*.log
+*.zip
+.DS_Store
+ner/
