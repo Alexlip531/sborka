@@ -6,6 +6,11 @@ node_modules/
 # ---- Android SDK (huge, must never be committed) ----
 android-sdk/
 
+# ---- JDK (downloaded for local build, must not be committed) ----
+jdk17/
+jdk*/
+
+
 # ---- Build outputs & binaries ----
 download/
 upload/

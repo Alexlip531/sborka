@@ -140,6 +140,12 @@ class CalendarFragment : Fragment() {
             b.textMeal.text = if (item.beforeMeal) "до еды" else "после еды"
             b.textTime.text = DateUtils.formatTime(item.measuredAt)
             b.textStatus.text = result.label
+            if (item.note.isNotBlank()) {
+                b.textNote.visibility = View.VISIBLE
+                b.textNote.text = item.note
+            } else {
+                b.textNote.visibility = View.GONE
+            }
             val bg = android.graphics.drawable.GradientDrawable().apply {
                 shape = android.graphics.drawable.GradientDrawable.RECTANGLE
                 cornerRadius = 14f * resources.displayMetrics.density
@@ -159,6 +165,12 @@ class CalendarFragment : Fragment() {
             b.textMeal.text = if (item.pulse > 0) "${item.pulse} уд/мин, ${item.arm}" else item.arm
             b.textTime.text = DateUtils.formatTime(item.measuredAt)
             b.textStatus.text = result.label
+            if (item.note.isNotBlank()) {
+                b.textNote.visibility = View.VISIBLE
+                b.textNote.text = item.note
+            } else {
+                b.textNote.visibility = View.GONE
+            }
             val bg = android.graphics.drawable.GradientDrawable().apply {
                 shape = android.graphics.drawable.GradientDrawable.RECTANGLE
                 cornerRadius = 14f * resources.displayMetrics.density

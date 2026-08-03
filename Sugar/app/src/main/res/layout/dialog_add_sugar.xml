@@ -78,11 +78,64 @@
             android:text="@string/sugar_after_meal" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/note_quick_title"
+        android:textAppearance="@style/TextAppearance.App.Title"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="6dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="false"
+        app:chipSpacingHorizontal="6dp"
+        app:chipSpacingVertical="4dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_morning"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_tpl_morning" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_evening"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_tpl_evening" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_after_exercise"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_tpl_after_exercise" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_medication"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_tpl_medication" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_unwell"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_tpl_unwell" />
+    </com.google.android.material.chip.ChipGroup>
+
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:hint="@string/sugar_note"
         app:boxStrokeColor="@color/brand_primary"
         app:hintTextColor="@color/brand_primary">

@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.zai.sugar.R
 import com.zai.sugar.data.entity.PressureMeasurement
@@ -39,8 +40,47 @@ class AddPressureDialog : BottomSheetDialogFragment() {
 
         binding.toggleArm.check(R.id.btn_arm_left)
 
+        // Quick-note chips: tapping toggles the chip text in/out of the note field.
+        setupNoteChips()
+
         binding.btnCancel.setOnClickListener { dismiss() }
         binding.btnSave.setOnClickListener { save() }
+    }
+
+    private fun setupNoteChips() {
+        val chips = listOf(
+            binding.chipMorning,
+            binding.chipEvening,
+            binding.chipAfterRest,
+            binding.chipAfterExercise,
+            binding.chipHeadache,
+            binding.chipDizziness,
+        )
+        chips.forEach { chip ->
+            chip.setOnClickListener {
+                val label = chip.text?.toString().orEmpty()
+                val current = binding.editNote.text?.toString().orEmpty()
+                val updated = toggleNoteToken(current, label)
+                binding.editNote.setText(updated)
+                binding.editNote.setSelection(updated.length)
+                chip.isChecked = updated.contains(label)
+            }
+        }
+    }
+
+    /** Adds the token if missing, removes it (and surrounding separators) if present. */
+    private fun toggleNoteToken(current: String, token: String): String {
+        val parts = current.split(", ", ",")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .toMutableList()
+        val idx = parts.indexOfFirst { it.equals(token, ignoreCase = true) }
+        if (idx >= 0) {
+            parts.removeAt(idx)
+        } else {
+            parts.add(token)
+        }
+        return parts.joinToString(", ")
     }
 
     private fun save() {

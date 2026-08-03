@@ -66,6 +66,18 @@
     <string name="stats_distribution_pressure">Распределение давления</string>
     <string name="stats_no_data">Недостаточно данных для статистики</string>
 
+    <!-- Note quick templates -->
+    <string name="note_quick_title">Быстрая заметка</string>
+    <string name="note_tpl_morning">Утром</string>
+    <string name="note_tpl_evening">Вечером</string>
+    <string name="note_tpl_after_meal">После еды</string>
+    <string name="note_tpl_after_exercise">После нагрузки</string>
+    <string name="note_tpl_after_rest">После отдыха</string>
+    <string name="note_tpl_medication">После лекарства</string>
+    <string name="note_tpl_unwell">Плохое самочувствие</string>
+    <string name="note_tpl_headache">Головная боль</string>
+    <string name="note_tpl_dizziness">Головокружение</string>
+
     <!-- Validation -->
     <string name="err_sugar_required">Введите уровень сахара</string>
     <string name="err_sugar_range">Значение должно быть от 1 до 35 ммоль/л</string>
