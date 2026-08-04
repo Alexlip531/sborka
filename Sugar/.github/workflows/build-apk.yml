@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,13 +31,46 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
+      - name: Read version name
+        id: version
+        run: |
+          VERSION=$(grep 'versionName' app/build.gradle.kts | sed -E 's/.*versionName\s*=\s*"([^"]+)".*/\1/')
+          CODE=$(grep 'versionCode' app/build.gradle.kts | sed -E 's/.*versionCode\s*=\s*([0-9]+).*/\1/')
+          echo "name=$VERSION" >> $GITHUB_OUTPUT
+          echo "code=$CODE" >> $GITHUB_OUTPUT
+          echo "Resolved version: $VERSION (code $CODE)"
+
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon
 
-      - name: Upload APK
+      - name: Rename APK to sugar-<version>.apk
+        run: |
+          mkdir -p artifacts
+          cp app/build/outputs/apk/debug/app-debug.apk "artifacts/sugar-${{ steps.version.outputs.name }}.apk"
+          ls -la artifacts/
+
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sugar-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
+          name: sugar-${{ steps.version.outputs.name }}.apk
+          path: artifacts/sugar-${{ steps.version.outputs.name }}.apk
+          retention-days: 90
           if-no-files-found: error
+
+      - name: Create GitHub Release with APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.name }}
+          name: Sugar v${{ steps.version.outputs.name }}
+          body: |
+            ## Sugar v${{ steps.version.outputs.name }}
+
+            Автоматическая сборка из коммита ${{ github.sha }}
+
+            ### Установка
+            1. Скачайте файл `sugar-${{ steps.version.outputs.name }}.apk` ниже
+            2. Откройте его на телефоне
+            3. Разрешите установку из неизвестных источников, если попросит
+            4. Установите поверх старой версии (данные сохранятся)
+          files: artifacts/sugar-${{ steps.version.outputs.name }}.apk
+          prerelease: false
