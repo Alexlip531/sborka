@@ -45,6 +45,10 @@ class SugarFragment : Fragment() {
             AddSugarDialog.newInstance().show(parentFragmentManager, "add_sugar")
         }
 
+        binding.btnEmptyAdd.setOnClickListener {
+            AddSugarDialog.newInstance().show(parentFragmentManager, "add_sugar")
+        }
+
         observeData()
     }
 

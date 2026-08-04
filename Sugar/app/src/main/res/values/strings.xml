@@ -30,7 +30,7 @@
     <string name="sugar_avg_after">Среднее после еды</string>
     <string name="sugar_last">Последний замер</string>
     <string name="sugar_no_data">Пока нет измерений сахара</string>
-    <string name="sugar_no_data_hint">Нажмите + чтобы добавить первый замер</string>
+    <string name="sugar_no_data_hint">Добавьте первый замер, чтобы начать отслеживать уровень сахара</string>
     <string name="sugar_unit">ммоль/л</string>
 
     <!-- Pressure -->
@@ -49,7 +49,7 @@
     <string name="pressure_avg_diastolic">Среднее диастолическое</string>
     <string name="pressure_avg_pulse">Средний пульс</string>
     <string name="pressure_no_data">Пока нет измерений давления</string>
-    <string name="pressure_no_data_hint">Нажмите + чтобы добавить первый замер</string>
+    <string name="pressure_no_data_hint">Добавьте первый замер, чтобы начать отслеживать давление</string>
 
     <!-- Calendar -->
     <string name="calendar_title">Календарь</string>

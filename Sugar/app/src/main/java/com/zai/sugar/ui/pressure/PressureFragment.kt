@@ -44,6 +44,10 @@ class PressureFragment : Fragment() {
             AddPressureDialog.newInstance().show(parentFragmentManager, "add_pressure")
         }
 
+        binding.btnEmptyAdd.setOnClickListener {
+            AddPressureDialog.newInstance().show(parentFragmentManager, "add_pressure")
+        }
+
         observeData()
     }
 
