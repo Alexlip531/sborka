@@ -24,8 +24,8 @@
     <string name="sugar_note">Заметка</string>
     <string name="sugar_add_title">Новое измерение сахара</string>
     <string name="sugar_edit_title">Изменить измерение</string>
-    <string name="sugar_target_before">Цель до еды: 4.4–7.2</string>
-    <string name="sugar_target_after">Цель после еды: до 10.0</string>
+    <string name="sugar_target_before">Цель до еды: 4.0–7.2 (ниже 4.0 — гипогликемия)</string>
+    <string name="sugar_target_after">Цель после еды: до 10.0 (выше — гипергликемия)</string>
     <string name="sugar_avg_before">Среднее до еды</string>
     <string name="sugar_avg_after">Среднее после еды</string>
     <string name="sugar_last">Последний замер</string>
@@ -44,7 +44,7 @@
     <string name="pressure_note">Заметка</string>
     <string name="pressure_add_title">Новое измерение давления</string>
     <string name="pressure_edit_title">Изменить измерение</string>
-    <string name="pressure_target">Целевое: 120/80</string>
+    <string name="pressure_target">Целевое: 120–130 / 70–80 (выше 130/80 — гипертония)</string>
     <string name="pressure_avg_systolic">Среднее систолическое</string>
     <string name="pressure_avg_diastolic">Среднее диастолическое</string>
     <string name="pressure_avg_pulse">Средний пульс</string>

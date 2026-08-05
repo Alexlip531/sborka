@@ -100,11 +100,13 @@ class StatsFragment : Fragment() {
             }
             val elevatedPCount = pressureAll.count {
                 val s = PressureEvaluator.evaluate(it.systolic, it.diastolic).status
-                s == PressureEvaluator.Status.HIGH_NORMAL || s == PressureEvaluator.Status.HYPERTENSION_1
+                s == PressureEvaluator.Status.HIGH_NORMAL
             }
             val hypertensionCount = pressureAll.count {
                 val s = PressureEvaluator.evaluate(it.systolic, it.diastolic).status
-                s == PressureEvaluator.Status.HYPERTENSION_2 || s == PressureEvaluator.Status.HYPERTENSION_3
+                s == PressureEvaluator.Status.HYPERTENSION_1 ||
+                    s == PressureEvaluator.Status.HYPERTENSION_2 ||
+                    s == PressureEvaluator.Status.HYPERTENSION_3
             }
             binding.textCountHypotension.text = hypoCount.toString()
             binding.textCountNormalPressure.text = normalPCount.toString()
